@@ -1,11 +1,15 @@
-import logo from './logo.svg';
-import Header from "./Components/Header"
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-
+import { Route, BrowserRouter } from 'react-router-dom'
+import routes from './components/pages/index'
 function App() {
+
   return (
-    <Header/>
+      <BrowserRouter>
+          {
+            routes.map((route, idx) => (
+              <Route exact path={route.path} component={route.component} key={idx}></Route>
+            ))
+          }
+      </BrowserRouter>
   );
 }
 
